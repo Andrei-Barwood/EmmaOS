@@ -1,0 +1,14 @@
+[Unit]
+Description=Servicio que fuerza red 4G vía ADB
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/4g-lock/monitorear_red_4g.sh
+Restart=always
+RestartSec=10
+User=YOUR_USERNAME
+Environment=ADB_VENDOR_KEYS=/home/YOUR_USERNAME/.android/adbkey
+
+[Install]
+WantedBy=multi-user.target
